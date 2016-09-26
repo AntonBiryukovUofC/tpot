@@ -374,13 +374,13 @@ pipeline_optimizer = TPOTClassifier()
 <p>Some example code with custom TPOT parameters might look like:</p>
 <pre><code class="Python">from tpot import TPOTClassifier
 
-pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, cv=5, random_state=42, verbosity=2)
+pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, num_cv_folds=5, random_state=42, verbosity=2)
 </code></pre>
 
 <p>Now TPOT is ready to optimize a pipeline for you. You can tell TPOT to optimize a pipeline based on a data set with the <code>fit</code> function:</p>
 <pre><code class="Python">from tpot import TPOTClassifier
 
-pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, cv=5, random_state=42, verbosity=2)
+pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, num_cv_folds=5, random_state=42, verbosity=2)
 pipeline_optimizer.fit(training_features, training_classes)
 </code></pre>
 
@@ -388,7 +388,7 @@ pipeline_optimizer.fit(training_features, training_classes)
 <p>You can then proceed to evaluate the final pipeline on the testing set with the <code>score()</code> function:</p>
 <pre><code class="Python">from tpot import TPOTClassifier
 
-pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, cv=5, random_state=42, verbosity=2)
+pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, num_cv_folds=5, random_state=42, verbosity=2)
 pipeline_optimizer.fit(training_features, training_classes)
 print(pipeline_optimizer.score(testing_features, testing_classes))
 </code></pre>
@@ -396,7 +396,7 @@ print(pipeline_optimizer.score(testing_features, testing_classes))
 <p>Finally, you can tell TPOT to export the corresponding Python code for the optimized pipeline to a text file with the <code>export()</code> function:</p>
 <pre><code class="Python">from tpot import TPOTClassifier
 
-pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, cv=5, random_state=42, verbosity=2)
+pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, num_cv_folds=5, random_state=42, verbosity=2)
 pipeline_optimizer.fit(training_features, training_classes)
 print(pipeline_optimizer.score(testing_features, testing_classes))
 pipeline_optimizer.export('tpot_exported_pipeline.py')
